@@ -23,7 +23,7 @@ A high-performance, double-entry ledger service built with **Java 17**, **Spring
 1. **Clone the repo:**
    ```bash
    git clone [https://github.com/VedanshuGarg/fintech-ledger-api.git](https://github.com/VedanshuGarg/fintech-ledger-api.git)
-   
+
 2. **Start the Database (Docker):**
     ```bash
     docker-compose up -d
@@ -38,6 +38,7 @@ API Endpoints
 Endpoint: POST /v1/transactions
 
 Request (Deposit Money):
+```bash
 curl -X POST http://localhost:8080/api/transactions \
 -H "Content-Type: application/json" \
 -d '{
@@ -45,8 +46,10 @@ curl -X POST http://localhost:8080/api/transactions \
   "amount": 5000.00,
   "type": "CREDIT"
 }'
+```
 
 Request (Withdraw Money):
+```bash
 curl -X POST http://localhost:8080/api/transactions \
 -H "Content-Type: application/json" \
 -d '{
@@ -54,14 +57,22 @@ curl -X POST http://localhost:8080/api/transactions \
   "amount": 1500.50,
   "type": "DEBIT"
 }'
+```
 
 2. Get Account Balance
 Endpoint: GET /api/transactions/{accountNumber}/balance
 
-Request: curl -X GET http://localhost:8080/api/transactions/ACC-1001/balance
-Response: 3499.50
+Request:
+```bash
+curl -X GET http://localhost:8080/api/transactions/ACC-1001/balance
+```
+Response: 
+```bash
+3499.50
+```
 
 📂 Project Structure
+```bash
 src/main/java/com/vedanshu/fintech
 ├── controller/
 │   └── TransactionController.java    # REST Endpoints
@@ -74,5 +85,6 @@ src/main/java/com/vedanshu/fintech
 │   └── TransactionRepository.java    # Spring Data JPA Interface
 └── service/
     └── TransactionService.java       # Core Business Logic & Math
+```
 
 Built by Vedanshu Garg | Associate Software Engineer @ CloudSufi
